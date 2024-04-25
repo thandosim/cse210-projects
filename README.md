@@ -1,5 +1,5 @@
 # cse210-ww-student-template
-This is the starter code for students in the worldwide content version of CSE 210.
+This is my clone of the starter code for students in the worldwide content version of CSE 210. I will use it to practice as per the instructions in the weekly modules.
 
 This repository contains the starter code for many different projects. They are arranged as follows:
 
