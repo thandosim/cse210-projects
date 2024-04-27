@@ -40,11 +40,11 @@ class Program
             Console.WriteLine("Sorry. Please continue trying hard.");
         }
 
-        if (grade%10 >=7)
+        if (grade%10 >=7 && symbol != "F")
         {
             sign = "+";
         }
-        else if (grade%10 < 3)
+        else if (grade%10 < 3 && symbol != "F")
         {
             sign = "-";
         }
