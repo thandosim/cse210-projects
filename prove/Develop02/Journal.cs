@@ -4,7 +4,7 @@ public class Journal
 
     public void AddEntry( Entry newEntry)//revisit
     {
-        
+
     }
 
     public void DisplayAll()
