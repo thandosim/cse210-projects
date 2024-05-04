@@ -1,3 +1,6 @@
+// Exceeding requiements:  th code is run in a while loop so that the user is presented with the menu
+// and can exit the program by pressing 0. 
+
 using System;
 using System.IO; 
 
@@ -16,6 +19,7 @@ class Program
             Console.WriteLine("2. Display the journal");
             Console.WriteLine("3. Load the journal from a file");
             Console.WriteLine("4. Save the journal to a file");
+            Console.WriteLine("0. Exit.")
             choice = int.Parse(Console.ReadLine());
 
             if (choice == 1)
