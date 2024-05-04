@@ -1,13 +1,13 @@
 using System;
+using System.IO; 
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop02 World!");
-        Console.WriteLine("Welcome to the journal. Choose an option from the menu.");
-
-       int choice = 100;
+       int choice = 110;
+       string fileName = "myJournal.txt";
+       Journal theJournal = new Journal();
 
        while (choice != 0)
        {
@@ -21,30 +21,36 @@ class Program
             if (choice == 1)
             {   
                 PromptGenerator prompt1 = new PromptGenerator();
+                Entry anEntry = new Entry();
                 anEntry._promptText = prompt1.GetRandomPrompt();
                 Console.WriteLine(anEntry._promptText);
                 
-                Console.Write("Enter the date: ");
-                Entry anEntry = new Entry();
-                anEntry._date = Console.ReadLine();
-                // anEntry._promptText = 
-                // anEntry._entryText = 
+                DateTime theCurrentTime = DateTime.Now;
+                string dateText = theCurrentTime.ToShortDateString();
+                anEntry._date = dateText;
+
+                Console.WriteLine("type your journal entry: ");
+                anEntry._entryText = Console.ReadLine();
+
+                anEntry.Display();
+
+                theJournal.AddEntry(anEntry);
 
             }
             
             else if (choice == 2)
             {
-
+                theJournal.DisplayAll();
             }
 
             else if (choice == 3)
             {
-
+                theJournal.LoadFromFile(fileName);
             }
             
             else if (choice == 4)
             {
-
+                theJournal.SaveToFile(fileName);
             }
 
        }
