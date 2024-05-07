@@ -19,7 +19,7 @@ class Program
             Console.WriteLine("2. Display the journal");
             Console.WriteLine("3. Load the journal from a file");
             Console.WriteLine("4. Save the journal to a file");
-            Console.WriteLine("0. Exit.")
+            Console.WriteLine("0. Exit.");
             choice = int.Parse(Console.ReadLine());
 
             if (choice == 1)
