@@ -1,7 +1,7 @@
 public class Scripture
 {
     //attributes/variables
-    private Reference _reference = new Reference();
+    // private Reference _reference = new Reference();
     private List<Word> _words = new List<Word>();
 
     //Constructors
