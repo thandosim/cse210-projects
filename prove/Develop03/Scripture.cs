@@ -27,8 +27,20 @@ public class Scripture
         int _wordsToHide;
         for (int i = 0; i <= _numberToHide; i++ )
         {
-            _wordsToHide = randomGenerator.Next(0,numWords); 
-            _words[_wordsToHide].Hide();//hide random word
+            int check =0;
+            while (check !=1)
+            {
+                _wordsToHide = randomGenerator.Next(0,numWords);
+                if ( _words[_wordsToHide].IsHidden()== false)// if the word wis not hidden, 
+                {
+                    _words[_wordsToHide].Hide();//hide random word if not already hidden
+                    check = 1;
+                }
+                else
+                {
+                    check = 0;
+                }
+            }
         }
     }
 
