@@ -46,7 +46,7 @@ public class Scripture
 
     public string GetDisplayText()
     {
-        string textToDisplay ="";
+        string textToDisplay =_reference.GetDisplayText() + " ";
         foreach (var word in _words)
         {
             textToDisplay += word.GetDisplayText();
