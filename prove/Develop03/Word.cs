@@ -47,8 +47,16 @@ public class Word
         {
             foreach (char c in _text)
             {
-                wordHolder += "_";
+                if (c == ',' || c== '.' || c==';' || c=='\''|| c=='"' || c=='?' || c=='!')//to exclude special charracters from hiding
+                {
+                    wordHolder+=c;
+                }
+                else
+                {
+                    wordHolder += "_";
+                }                
             }
+            
         }
         return wordHolder;
     }

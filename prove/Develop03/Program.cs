@@ -1,7 +1,10 @@
+// For Extra Credit, 
+    // i added logic to the getdisplaytext method in Word so that special characters like (!,.'":;) are not hidden like  the letters
 // i made the HideRandomWords function to randomly choose a number of words to hide from 1 to 3
 // consider not hiding special characters as extra credit stuff
 // ----Added a counter that quits the program once the user presses enter more times than there are words in the verse. 
 //     This helps is the code gets stuck searching for visible words when there are none 
+
 using System;
 
 class Program
@@ -17,6 +20,9 @@ class Program
         int quiter = 0;
         Console.Clear();
         Console.WriteLine(s1.GetDisplayText());
+        Console.WriteLine(" ");
+        Console.WriteLine("Press enter to continue or type \"quit\" to exit.");
+
         option = Console.ReadLine();
         
         while (option !="quit")
@@ -25,7 +31,10 @@ class Program
             Console.Clear();
             Console.WriteLine(s1.GetDisplayText());
             //Console.WriteLine(s1.IsCompletelyHidden());
+            Console.WriteLine(" ");
+            Console.WriteLine("Press enter to continue or type \"quit\" to exit.");
             option = Console.ReadLine();
+
             quiter +=1;
             if (s1.IsCompletelyHidden() == true)
             {

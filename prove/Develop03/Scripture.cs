@@ -37,7 +37,7 @@ public class Scripture
             while (check !=1)
             {
                 _wordsToHide = randomGenerator.Next(0,_numWords);
-                if ( _words[_wordsToHide].IsHidden()== false)// if the word wis not hidden, 
+                if ( _words[_wordsToHide].IsHidden()== false)// if the word is not hidden, 
                 {
                     _words[_wordsToHide].Hide();//hide random word if not already hidden
                     check = 1;
