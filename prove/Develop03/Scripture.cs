@@ -4,6 +4,8 @@ public class Scripture
     private Reference _reference;
     private List<Word> _words = new List<Word>();
     private int _numWords;
+    private List<bool> boolList = new List<bool>();
+    private int _numVisibleWords;
     //Constructors
     public Scripture(Reference reference, string text)
     {
@@ -34,17 +36,26 @@ public class Scripture
         for (int i = 0; i <= _numberToHide; i++ )
         {
             int check =0;
-            while (check !=1)
+            while (check < _numberToHide )
             {
+                _numVisibleWords = _numWords - boolList.Count;
                 _wordsToHide = randomGenerator.Next(0,_numWords);
                 if ( _words[_wordsToHide].IsHidden()== false)// if the word is not hidden, 
                 {
                     _words[_wordsToHide].Hide();//hide random word if not already hidden
-                    check = 1;
+                    check += 0;
                 }
+                // else if (_numVisibleWords <= 3)
+                // {
+                //     // hide all remaining words
+                //     foreach(var word in _words)
+                //     {
+                //         word.Hide();
+                //     }
+                // }
                 else
                 {
-                    check = 0;
+                    check += 1;
                 }
             }
         }
@@ -63,7 +74,7 @@ public class Scripture
 
     public bool IsCompletelyHidden()
     {
-        List<bool> boolList = new List<bool>();
+        
         _numWords = _words.Count;//get number of words in verse/s
         for (int i = 0; i <= _numWords-1; i++)
         {

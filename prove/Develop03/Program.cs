@@ -1,5 +1,6 @@
 // For Extra Credit, 
     // i added logic to the getdisplaytext method in Word so that special characters like (!,.'":;) are not hidden like  the letters
+    // 
 // i made the HideRandomWords function to randomly choose a number of words to hide from 1 to 3
 // consider not hiding special characters as extra credit stuff
 // ----Added a counter that quits the program once the user presses enter more times than there are words in the verse. 
@@ -40,7 +41,7 @@ class Program
             {
                 option = "quit";
             }
-            else if(quiter==s1.getNumberOfWords())
+            else if(quiter>=s1.getNumberOfWords()/3)
             {
                 option = "quit";
             }
