@@ -4,8 +4,7 @@ public class Scripture
     private Reference _reference;
     private List<Word> _words = new List<Word>();
     private int _numWords;
-    private List<bool> boolList = new List<bool>();
-    private int _numVisibleWords;
+    private List<bool> _boolList = new List<bool>();
     //Constructors
     public Scripture(Reference reference, string text)
     {
@@ -38,21 +37,13 @@ public class Scripture
             int check =0;
             while (check < _numberToHide )
             {
-                _numVisibleWords = _numWords - boolList.Count;
                 _wordsToHide = randomGenerator.Next(0,_numWords);
                 if ( _words[_wordsToHide].IsHidden()== false)// if the word is not hidden, 
                 {
                     _words[_wordsToHide].Hide();//hide random word if not already hidden
                     check += 0;
                 }
-                // else if (_numVisibleWords <= 3)
-                // {
-                //     // hide all remaining words
-                //     foreach(var word in _words)
-                //     {
-                //         word.Hide();
-                //     }
-                // }
+   
                 else
                 {
                     check += 1;
@@ -76,11 +67,12 @@ public class Scripture
     {
         
         _numWords = _words.Count;//get number of words in verse/s
+        _boolList =[];
         for (int i = 0; i <= _numWords-1; i++)
         {
-            boolList.Add(_words[i].IsHidden());
+            _boolList.Add(_words[i].IsHidden());
         }
-        bool allTrue = boolList.All(item => item == true);
+        bool allTrue =_boolList.All(item => item == true);
 
         return allTrue;
     }
