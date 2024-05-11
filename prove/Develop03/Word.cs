@@ -24,7 +24,15 @@ public class Word
 
     public bool IsHidden()
     {
-        return false;
+        if (_isHidden == false)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+        // return false;
     }
 
     public string GetDisplayText()
@@ -44,6 +52,7 @@ public class Word
         }
         return wordHolder;
     }
+
 
 
 }

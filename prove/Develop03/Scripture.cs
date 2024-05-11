@@ -3,7 +3,7 @@ public class Scripture
     //attributes/variables
     private Reference _reference;
     private List<Word> _words = new List<Word>();
-
+    private int numWords;
     //Constructors
     public Scripture(Reference reference, string text)
     {
@@ -19,15 +19,15 @@ public class Scripture
     //methods/ functions
     public void HideRandomWords()//i have changed this method so that it randomly chooses a number of words to hide from 1 to 3 words. 
     {
-        int numWords = _words.Count;//get number of words in verse/s
+        numWords = _words.Count;//get number of words in verse/s
         Random randomGenerator = new Random();
         int _numberToHide;
-        _numberToHide = randomGenerator.Next(1,3);//randomly chosse to hide between 1 to 3 words
+        _numberToHide = randomGenerator.Next(1,3);//randomly chosoe to hide between 1 to 3 words
 
         int _wordsToHide;
         for (int i = 0; i <= _numberToHide; i++ )
         {
-            _wordsToHide = randomGenerator.Next(1,numWords); 
+            _wordsToHide = randomGenerator.Next(0,numWords); 
             _words[_wordsToHide].Hide();//hide random word
         }
     }
@@ -38,13 +38,22 @@ public class Scripture
         foreach (var word in _words)
         {
             textToDisplay += word.GetDisplayText();
+            textToDisplay += " ";
         } 
         return textToDisplay;
     }
 
     public bool IsCompletelyHidden()
     {
-        return false;
+        List<bool> boolList = new List<bool>();
+        numWords = _words.Count;//get number of words in verse/s
+        for (int i = 0; i <= numWords-1; i++)
+        {
+            boolList.Add(_words[i].IsHidden());
+        }
+        bool allTrue = boolList.All(item => item == true);
+
+        return allTrue;
     }
 
 }
