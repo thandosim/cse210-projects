@@ -3,10 +3,9 @@ public class ListingActivity : Activity
     private int _count;
     private List<string> _prompts;
 
-    public ListingActivity(string name, string description, int duration, int count)
-    : base(name,description,duration) 
+    public ListingActivity() 
     {  
-        _count = count;
+        _count = 0;
     }
 
     public void Run()

@@ -20,7 +20,11 @@ class Program
 
             if (option == "1")
             {
-                
+                BreathingActivity breathingActivity = new BreathingActivity();
+                breathingActivity.DisplayStartingMessage();
+                breathingActivity.Run();
+                breathingActivity.DisplayEndingMessage();
+
             }
 
             else if (option == "2")

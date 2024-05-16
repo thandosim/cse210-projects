@@ -4,11 +4,11 @@ public class Activity
     private string _description;
     private int _duration;
 
-    public Activity(string name, string description, int duration)
+    public Activity()
     {
-        _name = name;
-        _description = description;
-        _duration = duration;
+        _name = "";
+        _description = "";
+        _duration = 0;
     }
 
     public void DisplayStartingMessage()
