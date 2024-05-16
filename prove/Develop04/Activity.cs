@@ -1,8 +1,8 @@
 public class Activity
 {
-    private string _name;
-    private string _description;
-    private int _duration;
+    protected string _name;
+    protected string _description;
+    protected int _duration;
 
     public Activity()
     {
@@ -13,16 +13,40 @@ public class Activity
 
     public void DisplayStartingMessage()
     {
-        
+        Console.Clear();
+        Console.WriteLine($"Welcome to the {_name}");
+        Console.WriteLine();
+        Console.WriteLine(_description);
+        Console.WriteLine();
+        Console.Write("Please enter the duration of your activity in seconds: ");
+        _duration = int.Parse(Console.ReadLine());
+        ShowSpinner(3);
+
     }
 
     public void DisplayEndingMessage()
     {
-        
+        Console.WriteLine("Well done!!");
+        ShowSpinner(3);
+        Console.WriteLine($"You have completed {_duration} seconds of {_name}. ");    
+        ShowSpinner(3);
+        Console.Clear(); 
     }
 
     public void ShowSpinner(int seconds)
     {
+        Console.Write("\\");
+        Thread.Sleep(seconds*100);
+        Console.Write("\b \b");
+        Console.Write("|");
+        Thread.Sleep(seconds*100);
+        Console.Write("\b \b");
+        Console.Write("/");
+        Thread.Sleep(seconds*100);
+        Console.Write("\b \b");
+        Console.Write("--");
+        Thread.Sleep(seconds*100);
+        Console.Write("\b \b");
 
     }
 
