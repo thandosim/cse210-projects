@@ -1,7 +1,7 @@
 public class ReflectingActivity : Activity
 {
     private List<string> _questions;
-    private List<string> _prompts;
+    private List<string> _prompts = new List<string>();
 
     public ReflectingActivity()
     {
@@ -37,8 +37,14 @@ public class ReflectingActivity : Activity
 
     public string GetRandomPrompt()
     {
-        
-        return "Prompt 1";
+        _prompts.Add("Think of a time when you stood up for someone else.");
+        _prompts.Add("Think of a time when you did something really difficult.");
+        _prompts.Add("Think of a time when you helped someone in need.");
+        _prompts.Add("Think of a time when you did something truly selfless.");
+        Random randomGenerator = new Random();
+        int number = randomGenerator.Next(0,4);
+
+        return _prompts[number];
     }
 
     public string GetRandomQuestion()
