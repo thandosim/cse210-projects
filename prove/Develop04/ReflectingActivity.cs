@@ -47,7 +47,6 @@ public class ReflectingActivity : Activity
         _prompts.Add("Think of a time when you did something truly selfless.");
         Random randomGenerator = new Random();
         int number = randomGenerator.Next(0,3);
-
         return _prompts[number];
     }
 

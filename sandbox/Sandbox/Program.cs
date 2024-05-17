@@ -6,17 +6,17 @@ class Program
     {
         Console.WriteLine("Hello Sandbox World!");
 
-        ConsoleKey conK = Console.ReadKey(true).Key;
-        while (!Console.KeyAvailable && conK != ConsoleKey.L)
+        
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(10);
+
+        Thread.Sleep(3000);
+
+        DateTime currentTime = DateTime.Now;
+        if (currentTime < futureTime)
         {
-            // if (conK == ConsoleKey.N)
-            // {
-            //     // Do something when 'N' key is pressed
-            //     Console.WriteLine("N key pressed.");
-            // }
-            // conK = Console.ReadKey(true).Key;
+            Console.WriteLine("We have not arrived at our future time yet...");
         }
-        // Do something after 'L' key is pressed and the loop breaks
 
     }
 }
