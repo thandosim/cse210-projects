@@ -32,7 +32,8 @@ class Program
 
             else if (option == "3")
             {
-
+                ListingActivity listingActivity = new ListingActivity();
+                listingActivity.Run();
             }
 
             else if (option == "4")

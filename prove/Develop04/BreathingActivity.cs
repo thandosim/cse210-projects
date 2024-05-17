@@ -9,18 +9,25 @@ public class BreathingActivity : Activity
     public void Run()
     {
         DisplayStartingMessage();
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        ShowSpinner(5);
+
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(_duration);
 
         DateTime currentTime = DateTime.Now;
         while (currentTime < futureTime)
         {
+            Console.WriteLine();
             Console.WriteLine("Breathe in...");
-            Thread.Sleep(4000);
-            Console.WriteLine("Breathe out...");
-            Thread.Sleep(4000);
+            ShowCountDown(2);
+            Console.Write("Now breathe out... ");
+            ShowCountDown(2);
+            Console.WriteLine();
             currentTime = DateTime.Now;
         }
+        Console.WriteLine();
         DisplayEndingMessage();
     }     
 }
