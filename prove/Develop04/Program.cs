@@ -26,7 +26,8 @@ class Program
 
             else if (option == "2")
             {
-
+                ReflectingActivity reflectingActivity = new ReflectingActivity();
+                reflectingActivity.Run();
             }
 
             else if (option == "3")
