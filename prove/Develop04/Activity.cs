@@ -1,11 +1,13 @@
 public class Activity
 {
-    protected string _name;
+    //declaring protected variables to use in child classes
+    protected string _name; 
     protected string _description;
     protected int _duration;
 
     public Activity()
     {
+        //initialise the member variables
         _name = "";
         _description = "";
         _duration = 0;
@@ -13,6 +15,7 @@ public class Activity
 
     public void DisplayStartingMessage()
     {
+        //display a message at the start of each activity with name and description of the activity
         Console.Clear();
         Console.WriteLine($"Welcome to the {_name}");
         Console.WriteLine();
@@ -26,6 +29,7 @@ public class Activity
 
     public void DisplayEndingMessage()
     {
+        //display a message at the end of each activity with duration selected by the user and the name of the activity.
         Console.WriteLine("Well done!!");
         ShowSpinner(3);
         Console.WriteLine();
@@ -36,6 +40,7 @@ public class Activity
 
     public void ShowSpinner(int seconds)
     {
+        //a dspinner that runs for a specified number of seconds
         Console.Write("\\");
         Thread.Sleep(seconds*100);
         Console.Write("\b \b");
@@ -63,7 +68,7 @@ public class Activity
     }
 
     public void ShowCountDown(int seconds)
-    {
+    {   //a count down timer that runs for a specified number of seconds
         Console.Write("3");
         Thread.Sleep(seconds*500);
         Console.Write("\b \b");

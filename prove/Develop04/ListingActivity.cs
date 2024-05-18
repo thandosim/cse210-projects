@@ -5,6 +5,7 @@ public class ListingActivity : Activity
 
     public ListingActivity() 
     {  
+        //initialising the activity, setting the name and description
         _name = "Listing Activity";
         _description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
         _count = 0;
@@ -12,8 +13,10 @@ public class ListingActivity : Activity
 
     public void Run()
     {
-        DisplayStartingMessage();
+        
+        DisplayStartingMessage();// display message to welcome the use to the activity. this will recieve duration iunput from user
         Console.Clear();
+        //sequence of actions that result in listing activity.
         Console.WriteLine("Get ready...");
         ShowSpinner(5);
         Console.WriteLine();
@@ -23,11 +26,11 @@ public class ListingActivity : Activity
         ShowCountDown(2);
         Console.WriteLine();
 
-        
+        //allow the user to type the list. automatically ends after {_duration} seconds.
          GetListFromUser();
         // currentTime = DateTime.Now;
         
-
+        // display the number of items listed by the user. 
         Console.WriteLine($"You have listed {_count} items.");
         DisplayEndingMessage();
 
@@ -36,6 +39,7 @@ public class ListingActivity : Activity
 
     public void GetRandomPrompt()
     {
+        //creates and randomly selcts a prompt to display for the user
         _prompts.Add("Who are people that you appreciate?");
         _prompts.Add("What are personal strengths of yours?");
         _prompts.Add("Who are people that you have helped this week?");
@@ -48,19 +52,16 @@ public class ListingActivity : Activity
 
     public List<string> GetListFromUser()
     {
-        // ConsoleKey key;
+        // gets a list from the user and counts entries. this doestn realy do anything but count the entries.
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(_duration);
-        // DateTime currentTime = DateTime.Now;
         while (DateTime.Now < futureTime)
         {
               
             Console.Write(">  ");
             Console.ReadLine();
-            _count += 1;
-                        
-        }
-        
+            _count += 1;          
+        }        
         return [];
     }
 

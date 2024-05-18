@@ -2,12 +2,14 @@ public class BreathingActivity : Activity
 {
     public BreathingActivity() 
     {  
+         //initialising the activity, setting the name and description
         _name = "Breathing Activity";
         _description = "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.";
     }
 
     public void Run()
     {
+        // display message to welcome the use to the activity. this will recieve duration iunput from user
         DisplayStartingMessage();
         Console.Clear();
         Console.WriteLine("Get ready...");
@@ -19,6 +21,7 @@ public class BreathingActivity : Activity
         DateTime currentTime = DateTime.Now;
         while (currentTime < futureTime)
         {
+            //sequence of actions that result in breathing activity.
             Console.WriteLine();
             Console.WriteLine("Breathe in...");
             ShowCountDown(2);
