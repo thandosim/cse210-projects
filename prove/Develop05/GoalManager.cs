@@ -55,6 +55,17 @@ public class GoalManager
     public void CreateGoal()
     {
         //display a submenu to select goal type
+        Console.WriteLine();
+        Console.WriteLine("The types of Goals are: ");
+        Console.WriteLine("     1. Simple Goal");
+        Console.WriteLine("     2. Eternal Goal");
+        Console.WriteLine("     3. Checklist Goal");
+        Console.Write("Which type of goal would you like to create? ");
+        string option1= Console.ReadLine();
+        if (option1 == "1")
+        {
+            Console.WriteLine("simple goal");
+        }
         //ask for the name,description and points
         //ask for more if its checklist goal
         //create the object and add to the goal list
