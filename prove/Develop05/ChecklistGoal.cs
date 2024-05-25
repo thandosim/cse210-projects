@@ -28,7 +28,7 @@ public class ChecklistGoal : Goal
         return "";
     }
 
-    public override string GetStringDescription()
+    public override string GetStringRepresentation()
     {
         return "";
     }

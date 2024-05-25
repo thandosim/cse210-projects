@@ -1,0 +1,1 @@
+SimpleGoal|a simplegoal|20|False

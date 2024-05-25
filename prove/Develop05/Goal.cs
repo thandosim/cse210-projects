@@ -31,7 +31,7 @@ public class Goal
         return "";
     }
 
-    public virtual string GetStringDescription()
+    public virtual string GetStringRepresentation()
     {
         return "";
     }

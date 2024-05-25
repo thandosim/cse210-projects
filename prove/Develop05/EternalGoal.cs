@@ -15,7 +15,7 @@ public class EternalGoal : Goal
         return false;
     }
 
-    public override string GetStringDescription()
+    public override string GetStringRepresentation()
     {
         return "";
     }

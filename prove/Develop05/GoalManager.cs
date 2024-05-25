@@ -1,3 +1,5 @@
+using System.IO.Enumeration;
+
 public class GoalManager
 {
     private List<Goal> _goals;
@@ -170,8 +172,18 @@ public class GoalManager
     public void SaveGoals()
     {
         // ask user for a filename
-
+        Console.Write("What is the file name for the goal file?  ");
+        string fileName = Console.ReadLine();
         // loop through the goals and convert
+        foreach(var goal in _goals)
+        {
+            string line = goal.GetStringRepresentation();
+            using (StreamWriter outputFile = new StreamWriter(fileName))
+            {
+                outputFile.WriteLine(_score);
+                outputFile.WriteLine(line);
+            }
+        }
         // eaach to a string and save the string
     }
 

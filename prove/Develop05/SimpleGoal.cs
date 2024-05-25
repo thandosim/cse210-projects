@@ -21,9 +21,9 @@ public class SimpleGoal : Goal
         return true;
     }
 
-    public override string GetStringDescription()
+    public override string GetStringRepresentation()
     {
-        return "";
+        return $"SimpleGoal|{_description}|{_points}|{_isComplete}";
     }
 
     
