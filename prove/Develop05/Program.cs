@@ -12,5 +12,8 @@ class Program
         Goal g = goals[0];
 
         // create a Goal manager object and call the start function on that object
+        GoalManager myGoals = new GoalManager();
+        myGoals.Start();
+       
     }
 }
