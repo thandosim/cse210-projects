@@ -32,6 +32,10 @@ public class GoalManager
             {
                 CreateGoal();
             }
+            if (option == "2")
+            {
+                ListGoalDetails();
+            }
             if(option == "6")
             {
                 return;
@@ -58,6 +62,23 @@ public class GoalManager
     public void ListGoalDetails()
     {
         //loop through the list of goals and display all the details
+        
+        foreach(var goal in _goals)
+        {
+            // Console.WriteLine($"{goal._shortName}  {goal._description} {goal._points}");
+            if (goal is SimpleGoal simpleGoal)
+            {
+                Console.WriteLine($"[] {goal._shortName}  {goal._description} {goal._points}");
+            }
+            else if(goal is EternalGoal eternalGoal)
+            {
+                Console.WriteLine($"[ ] {goal._shortName}  {goal._description} {goal._points}");
+            }
+            else if(goal is ChecklistGoal checklistGoal)
+            {
+                Console.WriteLine($"[ ] {goal._shortName}  {goal._description} {goal._points} -- Currently completed: {checklistGoal._amountCompleted}/{checklistGoal._target}");
+            }
+        }
     }
 
     public void CreateGoal()
@@ -74,7 +95,7 @@ public class GoalManager
         //ask for the name,description and points
         Console.Write("What is the name of your goal? ");
         string name = Console.ReadLine();
-        Console.Write("What is a short descriptiion of it? ");
+        Console.Write("What is a short description of it? ");
         string description = Console.ReadLine();
         Console.Write("What is the amount of points associated with this goal? ");
         int points = int.Parse(Console.ReadLine());

@@ -1,9 +1,9 @@
 public abstract class Goal
 {
-    //Attributes
-    protected string _shortName;
-    protected string _description;
-    protected int _points;
+    //Attributes set to protected later
+    public string _shortName;
+    public string _description;
+    public int _points;
 
     //constructor(name,description,points)
     public Goal(string shortName, string description,int points)
