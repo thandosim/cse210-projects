@@ -2,8 +2,8 @@ public class Goal
 {
     //Attributes set to protected later
     protected string _shortName;
-    public string _description;
-    public int _points;
+    protected string _description;
+    protected int _points;
 
     //constructor(name,description,points)
     public Goal(string shortName, string description,int points)

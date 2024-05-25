@@ -91,7 +91,7 @@ public class GoalManager
             }
             else if(goal is ChecklistGoal checklistGoal)
             {
-                Console.WriteLine($"[ ] {goal.GetName()}  ({goal.GetDescription()}) -- Currently completed: {checklistGoal._amountCompleted}/{checklistGoal._target}");
+                Console.WriteLine($"[ ] {goal.GetName()}  ({goal.GetDescription()}) -- Currently completed: {checklistGoal.GetAmountCompleted()}/{checklistGoal.GetTarget()}");
             }
         }
     }
