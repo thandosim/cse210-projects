@@ -81,7 +81,6 @@ public class GoalManager
         foreach(var goal in _goals)
         {
             string x = " ";
-            // Console.WriteLine($"{goal._shortName}  {goal._description} {goal._points}");
             if (goal is SimpleGoal simpleGoal)
             {
                 if(simpleGoal.GetCompletion()==true)
@@ -172,10 +171,6 @@ public class GoalManager
         int choice = int.Parse(Console.ReadLine())-1;
         //call the Record event on the correct class
         _score += _goals[choice].RecordEvent();
-        // if (_goals[choice] is SimpleGoal)
-        // {
-        //     _goals[choice].RecordEvent();
-        // }
         // update the score based on the points
     }
 
