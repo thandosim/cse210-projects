@@ -64,7 +64,8 @@ public class GoalManager
 
     public void DisplayPlayerInfo()
     {
-        //display points        
+        //display points
+        Console.WriteLine($"You have {_score} Points.");        
     }
 
     public void ListGoalNames()
@@ -189,9 +190,32 @@ public class GoalManager
 
     public void LoadGoals()
     {
-        // ask usser for a filename
+        // ask user for a filename
+        Console.Write("What is the file name for the goal file?  ");
+        string fileName = Console.ReadLine();
         //read each line of the file and split it up
+        string[] lines = System.IO.File.ReadAllLines(fileName);
         //use the parts to recreate the Goal object
+        foreach(string line in lines)
+        {
+            string[] parts = line.Split("|");
+            string type = parts[0];
+            string name = parts[1];
+            string description = parts[2];
+            int points = int.Parse(parts[3]);
+            if (type == "SimpleGoal")
+            {
+                bool isComplete = bool.Parse(parts[4]);
+                SimpleGoal sg = new SimpleGoal(name,description,points);
+                _goals.Add(sg);
+            }
+            if (type == "ChecklistGoal")
+            {
+                int bonus = int.Parse(parts[4]);
+                int target = int.Parse(parts[5]);
+                int amountCompleted = int.Parse(parts[6]);
+            }
+        }
     }
 
 }
