@@ -176,16 +176,17 @@ public class GoalManager
         Console.Write("What is the file name for the goal file?  ");
         string fileName = Console.ReadLine();
         // loop through the goals and convert
-        foreach(var goal in _goals)
+        // eaach to a string and save the string
+        using (StreamWriter outputFile = new StreamWriter(fileName))
         {
-            string line = goal.GetStringRepresentation();
-            using (StreamWriter outputFile = new StreamWriter(fileName))
+            outputFile.WriteLine(_score);
+            foreach(var goal in _goals)        
             {
-                outputFile.WriteLine(_score);
+                string line = goal.GetStringRepresentation();
                 outputFile.WriteLine(line);
             }
         }
-        // eaach to a string and save the string
+        
     }
 
     public void LoadGoals()
