@@ -6,8 +6,8 @@ public class GoalManager
     public GoalManager()
     {
         _score = 0;
-        //List<Goal> goals = new List<Goal>();
-        SimpleGoal sg = new SimpleGoal("get","get married inn the temple", 500, false);
+        _goals = new List<Goal>();
+
     }
 
     public void Start()
@@ -32,6 +32,14 @@ public class GoalManager
             {
                 CreateGoal();
             }
+            if(option == "6")
+            {
+                return;
+            }
+            else
+            {
+                Console.WriteLine("invalid choice");
+            }
         }
 
     }
@@ -43,7 +51,7 @@ public class GoalManager
 
     public void ListGoalNames()
     {
-        //LoopExpression through the list of goals and display their namespace 
+        //Loop through the list of goals and display their names 
         //create another functiion in Goal class to get the protected names       
     }
 
@@ -62,13 +70,46 @@ public class GoalManager
         Console.WriteLine("     3. Checklist Goal");
         Console.Write("Which type of goal would you like to create? ");
         string option1= Console.ReadLine();
+        
+        //ask for the name,description and points
+        Console.Write("What is the name of your goal? ");
+        string name = Console.ReadLine();
+        Console.Write("What is a short descriptiion of it? ");
+        string description = Console.ReadLine();
+        Console.Write("What is the amount of points associated with this goal? ");
+        int points = int.Parse(Console.ReadLine());
+
+        
+        //ask for more if its checklist goal
         if (option1 == "1")
         {
             Console.WriteLine("simple goal");
+            SimpleGoal sg = new SimpleGoal(name,description,points);
+            _goals.Add(sg);
         }
-        //ask for the name,description and points
-        //ask for more if its checklist goal
+        if (option1 == "2")
+        {
+            Console.WriteLine("eternal goal");
+            EternalGoal eg = new EternalGoal(name,description,points);
+            _goals.Add(eg);
+        }
+
+        if (option1 == "3")
+        {
+            Console.WriteLine("checklist goal");
+            Console.Write("How many times does this goal need to be accomplished for a bonus? ");
+            int target = int.Parse(Console.ReadLine());
+            Console.Write($"What is the bonus for accomplishing it {target} times? ");
+            int bonus = int.Parse(Console.ReadLine());
+            ChecklistGoal cg = new ChecklistGoal(name,description,points,target,bonus);
+            _goals.Add(cg);
+        }
+        else
+        {
+            Console.WriteLine("invalid choice");
+        }
         //create the object and add to the goal list
+
     }
 
     public void RecordEvent()
