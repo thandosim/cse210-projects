@@ -15,7 +15,7 @@ public class ChecklistGoal : Goal
 
     public override int RecordEvent()
     {
-        return 0;
+        return _points;
     }
 
     public override bool IsComplete()

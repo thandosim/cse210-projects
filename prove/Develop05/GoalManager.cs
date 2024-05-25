@@ -36,6 +36,18 @@ public class GoalManager
             {
                 ListGoalDetails();
             }
+            if (option=="3")
+            {
+                SaveGoals();
+            }
+            if (option=="4")
+            {
+                LoadGoals();
+            }
+            if (option=="5")
+            {
+                RecordEvent();
+            }
             if(option == "6")
             {
                 return;
@@ -68,15 +80,15 @@ public class GoalManager
             // Console.WriteLine($"{goal._shortName}  {goal._description} {goal._points}");
             if (goal is SimpleGoal simpleGoal)
             {
-                Console.WriteLine($"[] {goal._shortName}  {goal._description} {goal._points}");
+                Console.WriteLine($"[{goal.IsComplete()}] {goal.GetName()}  ({goal.GetDescription}) ");
             }
             else if(goal is EternalGoal eternalGoal)
             {
-                Console.WriteLine($"[ ] {goal._shortName}  {goal._description} {goal._points}");
+                Console.WriteLine($"[ ] {goal.GetName()}  ({goal.GetDescription}) ");
             }
             else if(goal is ChecklistGoal checklistGoal)
             {
-                Console.WriteLine($"[ ] {goal._shortName}  {goal._description} {goal._points} -- Currently completed: {checklistGoal._amountCompleted}/{checklistGoal._target}");
+                Console.WriteLine($"[ ] {goal.GetName()}  ({goal.GetDescription}) -- Currently completed: {checklistGoal._amountCompleted}/{checklistGoal._target}");
             }
         }
     }
@@ -136,14 +148,29 @@ public class GoalManager
     public void RecordEvent()
     {
         //display a list of all the goal names
+        Console.WriteLine("The Goals are: ");
+        int i = 0;
+        foreach (var goal in _goals)
+        {
+            Console.WriteLine($" {i+1}. {goal.GetName()}");
+            i+=1;
+        }
         //ask user to select a goal
+        Console.Write("What Goal did you accomplish: ");
+        int choice = int.Parse(Console.ReadLine());
         //call the Record event on the correct class
+        _score += _goals[choice].RecordEvent();
+        if (_goals[choice] is SimpleGoal)
+        {
+            _goals[choice].IsComplete();
+        }
         // update the score based on the points
     }
 
     public void SaveGoals()
     {
         // ask user for a filename
+
         // loop through the goals and convert
         // eaach to a string and save the string
     }

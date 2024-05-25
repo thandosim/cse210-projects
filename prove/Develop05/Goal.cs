@@ -1,7 +1,7 @@
-public abstract class Goal
+public class Goal
 {
     //Attributes set to protected later
-    public string _shortName;
+    protected string _shortName;
     public string _description;
     public int _points;
 
@@ -13,10 +13,17 @@ public abstract class Goal
         _points = points;
     }
 
-    public abstract int RecordEvent();
+    public virtual int RecordEvent()
+    {
+        return 0;
+    }
 
+    // public abstract string GetName();
 
-    public abstract bool IsComplete();
+    public virtual bool IsComplete()
+    {
+        return false;
+    }
 
 
     public string GetDetailsString()
@@ -24,5 +31,21 @@ public abstract class Goal
         return "";
     }
 
-    public abstract string GetStringDescription();
+    public virtual string GetStringDescription()
+    {
+        return "";
+    }
+
+    public string GetName()
+    {
+        return _shortName;
+    }
+    public string GetDescription()
+    {
+        return _description;
+    }
+    public int GetPoints()
+    {
+        return _points;
+    }
 }
