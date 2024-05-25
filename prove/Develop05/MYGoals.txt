@@ -1,1 +1,2 @@
-SimpleGoal|a simplegoal|20|False
+0
+SimpleGoal|sim|simme|50|False

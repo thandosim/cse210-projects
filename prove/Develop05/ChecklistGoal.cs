@@ -11,6 +11,13 @@ public class ChecklistGoal : Goal
         _bonus = bonus;
     }
 
+    public ChecklistGoal(string name,string description, int points,int target,int amountCompleted, int bonus) : base(name,description,points)
+    {
+        _amountCompleted = amountCompleted;
+        _target = target;
+        _bonus = bonus;
+    }
+
     //make another constructor for when reading these from a file
 
     public override int RecordEvent()
@@ -30,6 +37,6 @@ public class ChecklistGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"ChecklistGoal|{_shortName}|{_description}|{_points}|{_target}|{_amountCompleted}|{_bonus}";;
     }
 }

@@ -83,15 +83,15 @@ public class GoalManager
             // Console.WriteLine($"{goal._shortName}  {goal._description} {goal._points}");
             if (goal is SimpleGoal simpleGoal)
             {
-                Console.WriteLine($"[{goal.IsComplete()}] {goal.GetName()}  ({goal.GetDescription}) ");
+                Console.WriteLine($"[{goal.IsComplete()}] {goal.GetName()}  ({goal.GetDescription()}) ");
             }
             else if(goal is EternalGoal eternalGoal)
             {
-                Console.WriteLine($"[ ] {goal.GetName()}  ({goal.GetDescription}) ");
+                Console.WriteLine($"[ ] {goal.GetName()}  ({goal.GetDescription()}) ");
             }
             else if(goal is ChecklistGoal checklistGoal)
             {
-                Console.WriteLine($"[ ] {goal.GetName()}  ({goal.GetDescription}) -- Currently completed: {checklistGoal._amountCompleted}/{checklistGoal._target}");
+                Console.WriteLine($"[ ] {goal.GetName()}  ({goal.GetDescription()}) -- Currently completed: {checklistGoal._amountCompleted}/{checklistGoal._target}");
             }
         }
     }
@@ -196,7 +196,11 @@ public class GoalManager
         //read each line of the file and split it up
         string[] lines = System.IO.File.ReadAllLines(fileName);
         //use the parts to recreate the Goal object
-        foreach(string line in lines)
+        _score = int.Parse(lines[0]);
+        List<string> lines2 = new List<string>(lines); 
+        lines2.RemoveAt(0);
+
+        foreach(string line in lines2)
         {
             string[] parts = line.Split("|");
             string type = parts[0];
@@ -206,16 +210,22 @@ public class GoalManager
             if (type == "SimpleGoal")
             {
                 bool isComplete = bool.Parse(parts[4]);
-                SimpleGoal sg = new SimpleGoal(name,description,points);
+                SimpleGoal sg = new SimpleGoal(name,description,points,isComplete);
                 _goals.Add(sg);
+            }
+            if (type == "EternalGoal")
+            {
+                EternalGoal eg = new EternalGoal(name,description,points);
+                _goals.Add(eg);
             }
             if (type == "ChecklistGoal")
             {
                 int bonus = int.Parse(parts[4]);
                 int target = int.Parse(parts[5]);
                 int amountCompleted = int.Parse(parts[6]);
+                ChecklistGoal cg = new ChecklistGoal(name,description,points,target,amountCompleted,bonus);
+                _goals.Add(cg);
             }
         }
     }
-
 }
