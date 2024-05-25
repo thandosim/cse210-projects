@@ -80,18 +80,27 @@ public class GoalManager
         
         foreach(var goal in _goals)
         {
+            string x = " ";
             // Console.WriteLine($"{goal._shortName}  {goal._description} {goal._points}");
             if (goal is SimpleGoal simpleGoal)
             {
-                Console.WriteLine($"[{goal.IsComplete()}] {goal.GetName()}  ({goal.GetDescription()}) ");
+                if(simpleGoal.GetCompletion()==true)
+                {
+                    x = "X";
+                } 
+                Console.WriteLine($"[{x}] {goal.GetName()}  ({goal.GetDescription()}) ");
             }
             else if(goal is EternalGoal eternalGoal)
             {
-                Console.WriteLine($"[ ] {goal.GetName()}  ({goal.GetDescription()}) ");
+                Console.WriteLine($"[{x}] {goal.GetName()}  ({goal.GetDescription()}) ");
             }
             else if(goal is ChecklistGoal checklistGoal)
             {
-                Console.WriteLine($"[ ] {goal.GetName()}  ({goal.GetDescription()}) -- Currently completed: {checklistGoal.GetAmountCompleted()}/{checklistGoal.GetTarget()}");
+                if(checklistGoal.IsComplete())
+                {
+                    x = "X";
+                }
+                Console.WriteLine($"[{x}] {goal.GetName()}  ({goal.GetDescription()}) -- Currently completed: {checklistGoal.GetAmountCompleted()}/{checklistGoal.GetTarget()}");
             }
         }
     }
@@ -137,7 +146,7 @@ public class GoalManager
             int target = int.Parse(Console.ReadLine());
             Console.Write($"What is the bonus for accomplishing it {target} times? ");
             int bonus = int.Parse(Console.ReadLine());
-            ChecklistGoal cg = new ChecklistGoal(name,description,points,target,bonus);
+            ChecklistGoal cg = new ChecklistGoal(name,description,points,bonus,target);
             _goals.Add(cg);
         }
         else
@@ -160,13 +169,13 @@ public class GoalManager
         }
         //ask user to select a goal
         Console.Write("What Goal did you accomplish: ");
-        int choice = int.Parse(Console.ReadLine());
+        int choice = int.Parse(Console.ReadLine())-1;
         //call the Record event on the correct class
         _score += _goals[choice].RecordEvent();
-        if (_goals[choice] is SimpleGoal)
-        {
-            _goals[choice].IsComplete();
-        }
+        // if (_goals[choice] is SimpleGoal)
+        // {
+        //     _goals[choice].RecordEvent();
+        // }
         // update the score based on the points
     }
 
@@ -224,7 +233,7 @@ public class GoalManager
                 int bonus = int.Parse(parts[4]);
                 int target = int.Parse(parts[5]);
                 int amountCompleted = int.Parse(parts[6]);
-                ChecklistGoal cg = new ChecklistGoal(name,description,points,target,amountCompleted,bonus);
+                ChecklistGoal cg = new ChecklistGoal(name,description,points,bonus,target,amountCompleted);
                 _goals.Add(cg);
             }
         }

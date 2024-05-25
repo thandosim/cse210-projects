@@ -11,7 +11,7 @@ public class ChecklistGoal : Goal
         _bonus = bonus;
     }
 
-    public ChecklistGoal(string name,string description, int points,int target,int amountCompleted, int bonus) : base(name,description,points)
+    public ChecklistGoal(string name,string description, int points, int bonus,int target,int amountCompleted) : base(name,description,points)
     {
         _amountCompleted = amountCompleted;
         _target = target;
@@ -22,12 +22,24 @@ public class ChecklistGoal : Goal
 
     public override int RecordEvent()
     {
+        _amountCompleted += 1;
+        if (_amountCompleted == _target)
+        {
+            _points += _bonus;
+        }
         return _points;
     }
 
     public override bool IsComplete()
     {
-        return false;
+        if (_amountCompleted == _target)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public string GetDetailsString()
@@ -37,7 +49,7 @@ public class ChecklistGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return $"ChecklistGoal|{_shortName}|{_description}|{_points}|{_target}|{_amountCompleted}|{_bonus}";;
+        return $"ChecklistGoal|{_shortName}|{_description}|{_points}|{_bonus}|{_target}|{_amountCompleted}";;
     }
 
     public int GetAmountCompleted()
