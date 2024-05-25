@@ -34,23 +34,23 @@ public class GoalManager
             {
                 CreateGoal();
             }
-            if (option == "2")
+            else if (option == "2")
             {
                 ListGoalDetails();
             }
-            if (option=="3")
+            else if (option=="3")
             {
                 SaveGoals();
             }
-            if (option=="4")
+            else if (option=="4")
             {
                 LoadGoals();
             }
-            if (option=="5")
+            else if (option=="5")
             {
                 RecordEvent();
             }
-            if(option == "6")
+            else if(option == "6")
             {
                 return;
             }
@@ -131,14 +131,14 @@ public class GoalManager
             SimpleGoal sg = new SimpleGoal(name,description,points);
             _goals.Add(sg);
         }
-        if (option1 == "2")
+        else if (option1 == "2")
         {
             Console.WriteLine("eternal goal");
             EternalGoal eg = new EternalGoal(name,description,points);
             _goals.Add(eg);
         }
 
-        if (option1 == "3")
+        else if (option1 == "3")
         {
             Console.WriteLine("checklist goal");
             Console.Write("How many times does this goal need to be accomplished for a bonus? ");
@@ -179,6 +179,7 @@ public class GoalManager
         // ask user for a filename
         Console.Write("What is the file name for the goal file?  ");
         string fileName = Console.ReadLine();
+        SavingScreen();
         // loop through the goals and convert
         // eaach to a string and save the string
         using (StreamWriter outputFile = new StreamWriter(fileName))
@@ -198,6 +199,7 @@ public class GoalManager
         // ask user for a filename
         Console.Write("What is the file name for the goal file?  ");
         string fileName = Console.ReadLine();
+        LoadingScreen();
         //read each line of the file and split it up
         string[] lines = System.IO.File.ReadAllLines(fileName);
         //use the parts to recreate the Goal object
@@ -232,5 +234,29 @@ public class GoalManager
                 _goals.Add(cg);
             }
         }
+    }
+
+    public void LoadingScreen()
+    {
+        int loadingLength = 5; // Number of dots
+        Console.Write("Loading...");
+        for (int i = 0; i < loadingLength; i++)
+        {
+            Console.Write(".");
+            Thread.Sleep(500); // Simulate loading time
+        }
+        Console.WriteLine();
+    }
+
+    public void SavingScreen()
+    {
+        int loadingLength = 5; // Number of dots
+        Console.Write("Saving...");
+        for (int i = 0; i < loadingLength; i++)
+        {
+            Console.Write(".");
+            Thread.Sleep(500); // Simulate loading time
+        }
+        Console.WriteLine();
     }
 }

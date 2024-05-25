@@ -2,21 +2,14 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    public static void Main()
+{
+    int loadingLength = 5; // Number of dots
+    Console.Write("Loading...");
+    for (int i = 0; i < loadingLength; i++)
     {
-        Console.WriteLine("Hello Sandbox World!");
-
-        
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(10);
-
-        Thread.Sleep(3000);
-
-        DateTime currentTime = DateTime.Now;
-        if (currentTime < futureTime)
-        {
-            Console.WriteLine("We have not arrived at our future time yet...");
-        }
-
+        Console.Write(".");
+        Thread.Sleep(500); // Simulate loading time
     }
+}
 }
