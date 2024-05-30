@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 public class Video
 {
     private string _title;
@@ -5,18 +7,27 @@ public class Video
     private float _length;
     private List<Comment> _comments;
 
-    public Video()
+    public Video(string title, string author, float length, List<Comment> comments)
     {
+        _title = title;
+        _author = author;
+        _length = length;
+        _comments = comments;
 
     }
 
     public void Display()
     {
-
+        Console.WriteLine($"{_title} by {_author} ({_length} seconds)");
+        Console.WriteLine($"Comments ({GetCommentAmmount()})");
+        foreach (var comment in _comments)
+        {
+            Console.WriteLine(comment.GetCommentString());
+        }
     }
 
     public int GetCommentAmmount()
     {
-        return 0;
+        return _comments.Count;
     }
 }
