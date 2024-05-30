@@ -32,14 +32,20 @@ public class Order
 
     public void PackingLabel()
     {
+        Console.WriteLine("Packing Label");
+        Console.WriteLine("______________");
+        Console.WriteLine("ID   | Product");
         foreach (var product in _products)
         {
-            Console.WriteLine(product.GetName() + " " + product.GetId());
+            Console.WriteLine(product.GetId() + " | " + product.GetName());
         }
+        Console.WriteLine();
     }
 
     public void ShippingLabel()
     {
-        Console.WriteLine(_customer.GetName() + " " + _customer.GetAddress());
+        Console.WriteLine(_customer.GetName()); 
+        Console.WriteLine(_customer.GetAddress());
+        Console.WriteLine();
     }
 }

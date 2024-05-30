@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation2 World!");
         Address address1 = new Address("3 Auburn Ave", "Cleveland", "Ohio", "USA");
         Address address2 = new Address("7 Hepburn St", "Freemans Bay", "Auckland", "NZ");
         Customer customer1 = new Customer("Thando Sim", address1);
@@ -27,11 +26,12 @@ class Program
         Order order1 = new Order(customer1,products1);
         Order order2 = new Order(customer2,products2);
 
-        Console.WriteLine($"Order1 Total Cost: {order1.GetTotal()}");
+        Console.WriteLine($"Order1");
+        Console.WriteLine($"Total Cost: ${order1.GetTotal()}");
         order1.PackingLabel();
         order1.ShippingLabel();
 
-        Console.WriteLine($"Order2 Total Cost: {order2.GetTotal()}");
+        Console.WriteLine($"Order2 Total Cost: ${order2.GetTotal()}");
         order2.PackingLabel();
         order2.ShippingLabel();
     }
