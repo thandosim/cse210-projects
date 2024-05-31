@@ -9,21 +9,16 @@ public class BicycleActivity : Activity
 
     public override float GetDistance()
     {
-        return 0;
+        return _speed*_length/60;
     }
 
     public override float GetSpeed()
     {
-        return 0;
+        return _speed;
     }
 
     public override float GetPace()
     {
-        return 0;
-    }
-
-    public override string Summary()
-    {
-        return "";
+        return 60/GetSpeed();
     }
 }

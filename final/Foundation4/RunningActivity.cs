@@ -9,21 +9,16 @@ public class RunningActivity : Activity
 
     public override float GetDistance()
     {
-        return 0;
+        return _distance;
     }
 
     public override float GetSpeed()
     {
-        return 0;
+        return _distance/_length*60;
     }
 
     public override float GetPace()
     {
-        return 0;
-    }
-
-    public override string Summary()
-    {
-        return "";
+        return 60/GetSpeed();
     }
 }

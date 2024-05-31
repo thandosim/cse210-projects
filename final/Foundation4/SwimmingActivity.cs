@@ -9,21 +9,16 @@ public class SwimmingActivity :Activity
 
     public override float GetDistance()
     {
-        return 0;
+        return _laps*50/1000;
     }
 
     public override float GetSpeed()
     {
-        return 0;
+        return GetDistance()/_length*60;
     }
 
     public override float GetPace()
     {
-        return 0;
-    }
-
-    public override string Summary()
-    {
-        return "";
+        return 60/GetSpeed();
     }
 }

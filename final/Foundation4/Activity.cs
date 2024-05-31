@@ -24,9 +24,9 @@ public class Activity
         return 0;
     }
 
-    public virtual string Summary()
+    public virtual string GetSummary()
     {
-        return "";
+        return $"> {_date} {GetType()} ({_length}) - Distance: {GetDistance()}km, Speed: {GetSpeed()} kph, Pace: {GetPace()} per km";
     }
 
 
