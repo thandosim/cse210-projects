@@ -7,7 +7,7 @@ public class OutdoorEvent : Event
         _weather = weather;
     }
 
-    public override void DisplayFullDetails()
+    public void DisplayFullDetails()
     {
         Console.WriteLine(GetType());
         Console.WriteLine(_title);

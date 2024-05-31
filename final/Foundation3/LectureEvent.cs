@@ -9,7 +9,7 @@ public class LectureEvent : Event
         _capacity = capacity;
     }
 
-    public override void DisplayFullDetails()
+    public void DisplayFullDetails()
     {
         Console.WriteLine(GetType());
         Console.WriteLine(_title);

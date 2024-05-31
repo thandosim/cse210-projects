@@ -31,8 +31,4 @@ public class Event
         Console.WriteLine(_address.GetAddressString());        
     }
     
-    public virtual void DisplayFullDetails()
-    {
-        
-    }
 }
