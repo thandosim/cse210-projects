@@ -11,6 +11,13 @@ public class LectureEvent : Event
 
     public override void DisplayFullDetails()
     {
-
+        Console.WriteLine(GetType());
+        Console.WriteLine(_title);
+        Console.WriteLine(_description);
+        Console.WriteLine(_date);
+        Console.WriteLine(_time);
+        Console.WriteLine(_address.GetAddressString());
+        Console.WriteLine(_speakerName);
+        Console.WriteLine(_capacity); 
     }
 }

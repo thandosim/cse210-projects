@@ -1,10 +1,10 @@
-public class ReceptionEvent : Event
+public class OutdoorEvent : Event
 {
-    private string _email;
+    private string _weather;
 
-    public ReceptionEvent(string title, string description, string date, string time, Address address, string email) : base(title,description,date,time,address)
+    public OutdoorEvent(string title, string description, string date, string time, Address address, string weather) : base(title,description,date,time,address)
     {
-        _email = email;
+        _weather = weather;
     }
 
     public override void DisplayFullDetails()
@@ -15,6 +15,6 @@ public class ReceptionEvent : Event
         Console.WriteLine(_date);
         Console.WriteLine(_time);
         Console.WriteLine(_address.GetAddressString());
-        Console.WriteLine(_email); 
+        Console.WriteLine(_weather); 
     }
 }

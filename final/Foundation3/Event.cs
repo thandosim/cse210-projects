@@ -17,12 +17,18 @@ public class Event
 
     public void DisplayShortDetails()
     {
-
+        Console.WriteLine(GetType());
+        Console.WriteLine(_title);
+        Console.WriteLine(_date);
     }
 
     public void DisplayBaseDetails()
     {
-        
+        Console.WriteLine(_title);
+        Console.WriteLine(_description);
+        Console.WriteLine(_date);
+        Console.WriteLine(_time);
+        Console.WriteLine(_address.GetAddressString());        
     }
     
     public virtual void DisplayFullDetails()
